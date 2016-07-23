@@ -16,6 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".EduWritingActivity"/>
+        <activity android:name=".NewsWritingActivity"/>
         <activity android:name=".MainActivity"/>
     </application>
 
