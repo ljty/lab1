@@ -22,7 +22,7 @@ import java.util.ArrayList;
  */
 public class EduFragment extends Fragment{
 
-    private ListView medulv;
+    private ListView mEdulv;
 
     private Context mContext;
 
@@ -31,11 +31,11 @@ public class EduFragment extends Fragment{
         View v=inflater.inflate(R.layout.fragment_edu,null);
 
         mContext=getActivity();
-        medulv= (ListView) v.findViewById(R.id.edulv);
+        mEdulv= (ListView) v.findViewById(R.id.edulv);
         ArrayList<EduBean> allEdu= EduUtils.getAllEdu(mContext);
         EduAdapter eduAdapter=new EduAdapter(mContext,allEdu);
-        medulv.setAdapter(eduAdapter);
-        medulv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mEdulv.setAdapter(eduAdapter);
+        mEdulv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent it = new Intent(mContext,EduWritingActivity.class);
