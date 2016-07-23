@@ -46,13 +46,13 @@ public class NewsAdapter extends BaseAdapter{
         if(convertView != null){
             view = convertView;
         }else {
-            view=View.inflate(context, R.layout.item_edu,null);
+            view=View.inflate(context, R.layout.item_news,null);
         }
-        TextView title= (TextView) view.findViewById(R.id.title);
+        TextView news= (TextView) view.findViewById(R.id.news);
 
         NewsBean newsBean=list.get(position);
 
-        title.setText(newsBean.getNews());
+        news.setText(newsBean.getNews());
 
         return view;
     }
