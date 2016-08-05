@@ -1,34 +1,34 @@
 package com.ifox.android.lab.bean;
 
-import android.graphics.drawable.Drawable;
-
 /**
  * Created by 10368 on 2016/7/23.
  */
 public class NewsBean {
+    public String title;
+    public String des;
+    public int id;
 
-    private String news;
-
-    private Drawable icon;
-
-    public String getNews() {
-        return news;
+    public int getId() {
+        return id;
     }
 
-    public void setNews(String news) {
-        this.news = news;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public Drawable getIcon() {
-        return icon;
+    public String getTitle() {
+        return title;
     }
 
-    public void setIcon(Drawable icon) {
-        this.icon = icon;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public NewsBean(String news,Drawable icon) {
-        this.icon = icon;
-        this.news = news;
+    public String getDes() {
+        return des;
+    }
+
+    public void setDes(String des) {
+        this.des = des;
     }
 }

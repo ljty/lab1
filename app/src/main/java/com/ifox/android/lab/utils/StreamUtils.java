@@ -20,7 +20,7 @@ public class StreamUtils {
 				out.flush();
 			}
 			
-			result =   new String(out.toByteArray(),"gbk");
+			result =   new String(out.toByteArray(),"utf-8");
 			
 //			result = out.toString();//将字节流转换成string
 			
