@@ -1,4 +1,4 @@
-package com.ifox.android.lab;
+package com.ifox.android.lab.fragment;
 
 
 import android.app.Fragment;
@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.ifox.android.lab.NewsWritingActivity;
+import com.ifox.android.lab.R;
 import com.ifox.android.lab.adapter.NewsAdapter;
 import com.ifox.android.lab.bean.NewsBean;
 import com.ifox.android.lab.utils.NewsUtils;
@@ -28,8 +30,6 @@ public class NewsFragment extends Fragment {
     private ListView mNewslv;
 
     private Context mContext;
-
-
 
     private Handler handler = new Handler(){
         public void handleMessage(android.os.Message msg) {

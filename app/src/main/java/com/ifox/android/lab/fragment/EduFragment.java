@@ -1,4 +1,4 @@
-package com.ifox.android.lab;
+package com.ifox.android.lab.fragment;
 
 import android.app.Fragment;
 import android.content.Context;
@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.ifox.android.lab.EduWritingActivity;
+import com.ifox.android.lab.R;
 import com.ifox.android.lab.adapter.EduAdapter;
 import com.ifox.android.lab.bean.EduBean;
 import com.ifox.android.lab.utils.EduUtils;

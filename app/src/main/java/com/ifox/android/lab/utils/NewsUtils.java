@@ -18,7 +18,7 @@ import java.util.ArrayList;
  */
 public class NewsUtils {
 
-    public static String newsPath_url="http://192.168.2.111:8080/itheima74/servlet/GetNewsServlet";
+    public static String newsPath_url="http://222.196.200.18:8080/itheima74/servlet/GetNewsServlet";
 
     public static ArrayList<NewsBean> getAllNewsForNetWork(Context context){
         ArrayList<NewsBean> arrayList = new ArrayList<NewsBean>();
