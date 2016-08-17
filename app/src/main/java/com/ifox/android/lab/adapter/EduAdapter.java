@@ -42,7 +42,7 @@ public class EduAdapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View view = null;
+        View view ;
         if(convertView != null){
             view = convertView;
         }else {

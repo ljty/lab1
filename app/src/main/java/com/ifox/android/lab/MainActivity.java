@@ -9,11 +9,10 @@ import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.ifox.android.lab.fragment.EduFragment;
 import com.ifox.android.lab.fragment.NewsFragment;
-import com.ifox.android.lab.fragment.UserFragment;
 import com.ifox.android.lab.fragment.VideoFragment;
 
 /**
- * 主活动，管理fragment
+ * 主活动，管理 fragment
  */
 public class MainActivity extends AppCompatActivity {
 
@@ -23,29 +22,33 @@ public class MainActivity extends AppCompatActivity {
 
     private VideoFragment vf;
 
-    private UserFragment uf;
+    private int firstSelectedPosition = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // 底部导航栏
         BottomNavigationBar bottomNavigationBar = (BottomNavigationBar) findViewById(R.id.bottom_navigation_bar);
 
         bottomNavigationBar
-                .addItem(new BottomNavigationItem(R.drawable.ic_home_white_24dp, "公告").setActiveColor(R.color.mediumblue))
-                .addItem(new BottomNavigationItem(R.drawable.ic_book_white_24dp, "教学资源").setActiveColor(R.color.purple))
-                .addItem(new BottomNavigationItem(R.drawable.ic_videogame_asset_white_24dp, "教学视频").setActiveColor(R.color.orange))
-                .addItem(new BottomNavigationItem(R.drawable.ic_tv_white_24dp, "个人中心").setActiveColor(R.color.limegreen))
+                .addItem(new BottomNavigationItem(R.drawable.ic_home_white_24dp, " 公告 ").setActiveColor(R.color.mediumblue))
+                .addItem(new BottomNavigationItem(R.drawable.ic_book_white_24dp, " 教学资源 ").setActiveColor(R.color.purple))
+                .addItem(new BottomNavigationItem(R.drawable.ic_tv_white_24dp, " 教学视频 ").setActiveColor(R.color.orange))
+                .setFirstSelectedPosition(firstSelectedPosition)
                 .initialise();
 
         setDefaultFragment();
+        // 设置底部导航栏的切换
         bottomNavigationBar.setTabSelectedListener(new BottomNavigationBar.OnTabSelectedListener() {
             @Override
             public void onTabSelected(int position) {
+
                 FragmentManager fm = getFragmentManager();
-                //开启事务
+
                 FragmentTransaction transaction = fm.beginTransaction();
+
                 switch (position) {
                     case 0:
                         nf = new NewsFragment();
@@ -59,14 +62,9 @@ public class MainActivity extends AppCompatActivity {
                         vf = new VideoFragment();
                         transaction.replace(R.id.fragment, vf);
                         break;
-                    case 3:
-                        uf = new UserFragment();
-                        transaction.replace(R.id.fragment, uf);
-                        break;
                     default:
                         break;
                 }
-                // 事务提交
                 transaction.commit();
             }
 
@@ -80,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    //默认页设置
+    // 默认页设置
     private void setDefaultFragment() {
         FragmentManager fm = getFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
