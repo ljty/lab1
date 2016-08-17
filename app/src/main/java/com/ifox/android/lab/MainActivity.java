@@ -1,25 +1,21 @@
 package com.ifox.android.lab;
 
-
-import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.support.v7.app.AppCompatActivity;
+
+import com.ashokvarma.bottomnavigation.BottomNavigationBar;
+import com.ashokvarma.bottomnavigation.BottomNavigationItem;
+import com.ifox.android.lab.fragment.EduFragment;
+import com.ifox.android.lab.fragment.NewsFragment;
+import com.ifox.android.lab.fragment.UserFragment;
+import com.ifox.android.lab.fragment.VideoFragment;
 
 /**
  * 主活动，管理fragment
  */
-public class MainActivity extends Activity {
-
-    private Button mNews;
-
-    private Button mEdu;
-
-    private Button mVideo;
-
-    private Button mUser;
+public class MainActivity extends AppCompatActivity {
 
     private NewsFragment nf;
 
@@ -34,58 +30,62 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        nf=new NewsFragment();
-        FragmentManager fm=getFragmentManager();
-        FragmentTransaction ft=fm.beginTransaction();
-        ft.replace(R.id.fragment,nf);
-        ft.commit();
+        BottomNavigationBar bottomNavigationBar = (BottomNavigationBar) findViewById(R.id.bottom_navigation_bar);
 
-        mNews= (Button) findViewById(R.id.news);
-        mNews.setOnClickListener(new View.OnClickListener() {
+        bottomNavigationBar
+                .addItem(new BottomNavigationItem(R.drawable.ic_home_white_24dp, "公告").setActiveColor(R.color.mediumblue))
+                .addItem(new BottomNavigationItem(R.drawable.ic_book_white_24dp, "教学资源").setActiveColor(R.color.purple))
+                .addItem(new BottomNavigationItem(R.drawable.ic_videogame_asset_white_24dp, "教学视频").setActiveColor(R.color.orange))
+                .addItem(new BottomNavigationItem(R.drawable.ic_tv_white_24dp, "个人中心").setActiveColor(R.color.limegreen))
+                .initialise();
+
+        setDefaultFragment();
+        bottomNavigationBar.setTabSelectedListener(new BottomNavigationBar.OnTabSelectedListener() {
             @Override
-            public void onClick(View v) {
-                nf=new NewsFragment();
-                FragmentManager fm=getFragmentManager();
-                FragmentTransaction ft=fm.beginTransaction();
-                ft.replace(R.id.fragment,nf);
-                ft.commit();
+            public void onTabSelected(int position) {
+                FragmentManager fm = getFragmentManager();
+                //开启事务
+                FragmentTransaction transaction = fm.beginTransaction();
+                switch (position) {
+                    case 0:
+                        nf = new NewsFragment();
+                        transaction.replace(R.id.fragment, nf);
+                        break;
+                    case 1:
+                        ef = new EduFragment();
+                        transaction.replace(R.id.fragment, ef);
+                        break;
+                    case 2:
+                        vf = new VideoFragment();
+                        transaction.replace(R.id.fragment, vf);
+                        break;
+                    case 3:
+                        uf = new UserFragment();
+                        transaction.replace(R.id.fragment, uf);
+                        break;
+                    default:
+                        break;
+                }
+                // 事务提交
+                transaction.commit();
+            }
+
+            @Override
+            public void onTabUnselected(int position) {
+            }
+
+            @Override
+            public void onTabReselected(int position) {
             }
         });
+    }
 
-        mEdu= (Button) findViewById(R.id.edu);
-        mEdu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ef=new EduFragment();
-                FragmentManager fm=getFragmentManager();
-                FragmentTransaction ft=fm.beginTransaction();
-                ft.replace(R.id.fragment,ef);
-                ft.commit();
-            }
-        });
-
-        mVideo= (Button) findViewById(R.id.video);
-        mVideo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                vf=new VideoFragment();
-                FragmentManager fm=getFragmentManager();
-                FragmentTransaction ft=fm.beginTransaction();
-                ft.replace(R.id.fragment,vf);
-                ft.commit();
-            }
-        });
-
-        mUser= (Button) findViewById(R.id.user);
-        mUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                uf=new UserFragment();
-                FragmentManager fm=getFragmentManager();
-                FragmentTransaction ft=fm.beginTransaction();
-                ft.replace(R.id.fragment,uf);
-                ft.commit();
-            }
-        });
+    //默认页设置
+    private void setDefaultFragment() {
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction transaction = fm.beginTransaction();
+        NewsFragment nf = new NewsFragment();
+        transaction.replace(R.id.fragment, nf);
+        transaction.commit();
     }
 }
