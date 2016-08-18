@@ -1,6 +1,5 @@
 package com.ifox.android.lab.fragment;
 
-
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
@@ -13,8 +12,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.ifox.android.lab.NewsWritingActivity;
 import com.ifox.android.lab.R;
+import com.ifox.android.lab.ShowNewsActivity;
 import com.ifox.android.lab.adapter.NewsAdapter;
 import com.ifox.android.lab.bean.NewsBean;
 import com.ifox.android.lab.utils.NewsUtils;
@@ -81,7 +80,7 @@ public class NewsFragment extends Fragment {
         mNewslv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent it=new Intent(mContext,NewsWritingActivity.class);
+                Intent it=new Intent(mContext,ShowNewsActivity.class);
                 NewsBean bean=(NewsBean)parent.getItemAtPosition(position);
                 String title = bean.title;
                 String des = bean.des;
