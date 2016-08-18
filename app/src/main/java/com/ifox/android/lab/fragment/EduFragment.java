@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.ifox.android.lab.EduWritingActivity;
+import com.ifox.android.lab.ShowEduActivity;
 import com.ifox.android.lab.R;
 import com.ifox.android.lab.adapter.EduAdapter;
 import com.ifox.android.lab.bean.EduBean;
@@ -40,7 +40,7 @@ public class EduFragment extends Fragment{
         mEdulv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent it = new Intent(mContext,EduWritingActivity.class);
+                Intent it = new Intent(mContext,ShowEduActivity.class);
                 startActivity(it);
             }
         });
