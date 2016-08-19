@@ -10,7 +10,7 @@ import android.os.Handler;
  */
 public class SplashActivity extends Activity{
 
-    private final int SPLASH_DISPLAY_LENGHT = 1000*2; // 延迟两秒
+    private final int SPLASH_DISPLAY_LENGHT = 1000; // 延迟1秒
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
