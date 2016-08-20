@@ -39,9 +39,14 @@ public class NewsDaoUtils {
         SQLiteDatabase db = newsOpenHelper.getReadableDatabase();
         for (NewsBean newsBean : list) {
             ContentValues values = new ContentValues();
-            values.put("_id", newsBean.id);
-            values.put("title", newsBean.title);
-            values.put("des", newsBean.des);
+            values.put("n_id", newsBean.n_id);
+            values.put("n_title", newsBean.n_title);
+            values.put("n_content", newsBean.n_content);
+            values.put("n_visitTimes", newsBean.n_visitTimes);
+            values.put("n_sendDate", newsBean.n_sendDate);
+            values.put("n_attachName", newsBean.n_attachName);
+            values.put("n_attachAddress", newsBean.n_attachAddress);
+
             db.insert("news", null, values);
 
         }
@@ -61,9 +66,13 @@ public class NewsDaoUtils {
             while(cursor.moveToNext()){
 
                 NewsBean newsBean = new NewsBean();
-                newsBean. id = cursor.getInt(0);
-                newsBean. title = cursor.getString(1);
-                newsBean. des =	cursor.getString(2);
+                newsBean. n_id = cursor.getInt(0);
+                newsBean. n_title = cursor.getString(1);
+                newsBean. n_content =	cursor.getString(2);
+                newsBean. n_visitTimes = cursor.getString(3);
+                newsBean. n_sendDate = cursor.getString(4);
+                newsBean. n_attachName =	cursor.getString(5);
+                newsBean. n_attachAddress = cursor.getString(6);
 
                 list.add(newsBean);
             }

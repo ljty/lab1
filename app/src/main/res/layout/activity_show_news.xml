@@ -1,28 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    android:orientation="vertical"
+<LinearLayout android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <include layout="@layout/toolbar_base"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:navigationIcon="?attr/homeAsUpIndicator">
+
     </include>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/title"
+        android:id="@+id/n_title"
         android:layout_gravity="center_horizontal"
+        android:textSize="24sp"
+        android:padding="8dp"
         android:gravity="center|top"/>
+
+    <!--<ScrollView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:gravity="center"
-        android:id="@+id/des" />
+        android:id="@+id/n_content"
+        android:textSize="16sp"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp" />
+
+    <!--</ScrollView>-->
 
 </LinearLayout>

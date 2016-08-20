@@ -15,7 +15,14 @@ public class NewsOpenHelper extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table news (_id integer  ,title varchar(200),des varchar(300))");
+
+        db.execSQL("create table news (n_id integer  ," +
+                "n_title varchar(200)," +
+                "n_content varchar(200)," +
+                "n_visitTimes varchar(200)," +
+                "n_sendDate varchar(200)," +
+                "n_attachName varchar(200)," +
+                "n_attachAddress varchar(200))");
     }
 
     @Override

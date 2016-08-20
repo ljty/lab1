@@ -52,7 +52,7 @@ public class NewsAdapter extends BaseAdapter{
 
         NewsBean newsBean=list.get(position);
 
-        news.setText(newsBean.title);
+        news.setText(newsBean.n_title);
         return view;
     }
 }
