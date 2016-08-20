@@ -74,25 +74,23 @@ public class NewsFragment extends Fragment {
                 msg.obj = allNews;
                 handler.sendMessage(msg);
 
-
             }
         }).start();
+
         mNewslv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent it=new Intent(mContext,ShowNewsActivity.class);
                 NewsBean bean=(NewsBean)parent.getItemAtPosition(position);
-                String title = bean.title;
-                String des = bean.des;
-                Bundle bundleNews=new Bundle();
-                bundleNews.putString("title", title);
-                bundleNews.putString("des",des);
+                String n_title = bean.n_title;
+                String n_content = bean.n_content;
 
-                it.putExtra("info",bundleNews);
+                it.putExtra("n_title",n_title);
+                it.putExtra("n_content",n_content);
                 startActivity(it);
             }
         });
 
-    return v;
+        return v;
     }
 }
