@@ -7,19 +7,20 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.ifox.android.lab.R;
-import com.ifox.android.lab.bean.EduBean;
+import com.ifox.android.lab.bean.NewsBean;
 
 import java.util.ArrayList;
 
 /**
- * 教学资源适配器
+ * 公告适配器
  */
-public class EduAdapter extends BaseAdapter{
+public class NewsAdapter extends BaseAdapter {
 
-    private final ArrayList<EduBean> list;
+    private final ArrayList<NewsBean> list;
+
     private final Context context;
 
-    public EduAdapter(Context context,ArrayList<EduBean> list){
+    public NewsAdapter(Context context,ArrayList<NewsBean> list){
         this.context = context;
         this.list = list;
     }
@@ -45,14 +46,14 @@ public class EduAdapter extends BaseAdapter{
         if(convertView != null){
             view = convertView;
         }else {
-            view = View.inflate(context, R.layout.item_edu,null);
+            view = View.inflate(context, R.layout.item_news,null);
         }
 
-        TextView title = (TextView) view.findViewById(R.id.title);
+        TextView n_title = (TextView) view.findViewById(R.id.n_title);
 
-        EduBean eduBean = list.get(position);
+        NewsBean newsBean = list.get(position);
 
-        title.setText(eduBean.getTitle());
+        n_title.setText(newsBean.n_title);
 
         return view;
     }

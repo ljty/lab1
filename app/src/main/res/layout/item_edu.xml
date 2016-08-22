@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!--教学视频条目-->
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -14,7 +15,7 @@
             android:layout_height="32dp"
             android:id="@+id/imageView"
             android:layout_margin="8dp"
-            android:src="@drawable/edu"/>
+            android:src="@drawable/edu" />
 
         <TextView
             android:layout_width="match_parent"
@@ -22,7 +23,8 @@
             android:layout_margin="8dp"
             android:gravity="center|left"
             android:id="@+id/title"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center" />
+
     </LinearLayout>
 
 </RelativeLayout>

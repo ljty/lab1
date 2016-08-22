@@ -5,18 +5,20 @@
     android:layout_height="48dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-        <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:id="@+id/n_attachAddress"
-            android:layout_margin="8dp"
-            android:src="@drawable/news"/>
+    <!--公告条目-->
+    <ImageView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:id="@+id/n_attachAddress"
+        android:layout_margin="8dp"
+        android:src="@drawable/news"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="32dp"
-            android:layout_margin="8dp"
-            android:gravity="center|left"
-            android:id="@+id/n_title"
-            android:layout_gravity="center"/>
-    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_margin="8dp"
+        android:gravity="center|left"
+        android:id="@+id/n_title"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

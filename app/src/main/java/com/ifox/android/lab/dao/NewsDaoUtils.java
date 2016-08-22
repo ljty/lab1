@@ -10,31 +10,25 @@ import com.ifox.android.lab.bean.NewsBean;
 import java.util.ArrayList;
 
 /**
- * Created by 10368 on 2016/8/1.
+ * 公告数据获取
  */
 public class NewsDaoUtils {
 
-    private NewsOpenHelper newsOpenHelper;
+    private OpenHelper newsOpenHelper;
 
     public NewsDaoUtils(Context context){
-
         //创建一个帮助类对象
-        newsOpenHelper = new NewsOpenHelper(context);
-
+        newsOpenHelper = new OpenHelper(context);
     }
-
     //删除数据库中缓存的旧数据
     public void delete(){
-
         //通过帮助类对象获取一个数据库操作对象
         SQLiteDatabase db = newsOpenHelper.getReadableDatabase();
         db.delete("news", null, null);
         db.close();
     }
-
     //向数据库中添加新闻数据
     public void saveNews(ArrayList<NewsBean> list){
-
         //通过帮助类对象获取一个数据库操作对象
         SQLiteDatabase db = newsOpenHelper.getReadableDatabase();
         for (NewsBean newsBean : list) {
@@ -48,41 +42,31 @@ public class NewsDaoUtils {
             values.put("n_attachAddress", newsBean.n_attachAddress);
 
             db.insert("news", null, values);
-
         }
-
         db.close();
     }
-
     //从数据库中获取缓存的新闻数据
     public ArrayList<NewsBean> getNews(){
         ArrayList<NewsBean> list = new ArrayList<NewsBean>();
         //通过帮助类对象获取一个数据库操作对象
         SQLiteDatabase db = newsOpenHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("select * from news", null);//查询获取数据
-
         if(cursor != null && cursor.getCount() > 0){
-
             while(cursor.moveToNext()){
-
                 NewsBean newsBean = new NewsBean();
-                newsBean. n_id = cursor.getInt(0);
-                newsBean. n_title = cursor.getString(1);
-                newsBean. n_content =	cursor.getString(2);
-                newsBean. n_visitTimes = cursor.getString(3);
-                newsBean. n_sendDate = cursor.getString(4);
-                newsBean. n_attachName =	cursor.getString(5);
-                newsBean. n_attachAddress = cursor.getString(6);
+                newsBean.n_id = cursor.getInt(0);
+                newsBean.n_title = cursor.getString(1);
+                newsBean.n_content =	cursor.getString(2);
+                newsBean.n_visitTimes = cursor.getString(3);
+                newsBean.n_sendDate = cursor.getString(4);
+                newsBean.n_attachName =	cursor.getString(5);
+                newsBean.n_attachAddress = cursor.getString(6);
 
                 list.add(newsBean);
             }
         }
-
         db.close();
         cursor.close();
-
-
         return list;
-
     }
 }

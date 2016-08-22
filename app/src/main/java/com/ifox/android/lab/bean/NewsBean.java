@@ -1,7 +1,7 @@
 package com.ifox.android.lab.bean;
 
 /**
- * Created by 10368 on 2016/7/23.
+ * 公告模型
  */
 public class NewsBean {
 
@@ -70,12 +70,5 @@ public class NewsBean {
     }
 
     public NewsBean() {
-        this.n_attachAddress = n_attachAddress;
-        this.n_id = n_id;
-        this.n_title = n_title;
-        this.n_content = n_content;
-        this.n_visitTimes = n_visitTimes;
-        this.n_sendDate = n_sendDate;
-        this.n_attachName = n_attachName;
     }
 }

@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 /**
- * Created by 10368 on 2016/7/23.
+ * 解析公告json
  */
 public class NewsUtils {
 
@@ -37,23 +37,6 @@ public class NewsUtils {
                 InputStream inputStream = connection.getInputStream();
                 String result = StreamUtils.streamToString(inputStream);
 
-                //2. 解析获取的新闻数据到 List 集合中。
-//
-//                JSONObject root_json = new JSONObject(result);// 将一个字符串封装成一个 json 对象。
-//                JSONArray jsonArray = root_json.getJSONArray("newss");// 获取 root_json 中的 newss 作为 jsonArray 对象
-//
-//                for (int i = 0 ;i < jsonArray.length();i++){// 循环遍历 jsonArray
-//                    JSONObject news_json = jsonArray.getJSONObject(i);// 获取一条新闻的 json
-//
-//                    NewsBean newsBean = new NewsBean();
-//
-//                    newsBean. id = news_json.getInt("id");
-//                    newsBean. des = news_json.getString("des");
-//                    newsBean. title = news_json.getString("title");
-//
-//                    arrayList.add(newsBean);
-//
-//                }
                 JSONArray jsonArray=new JSONArray(result);
                 for (int i=0;i<jsonArray.length();i++){
 
