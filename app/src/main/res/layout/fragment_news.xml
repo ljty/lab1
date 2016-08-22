@@ -7,10 +7,10 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:orientation="vertical">
 
-    <ListView
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/newslv">
-    </ListView>
+        android:id="@+id/newsReclv">
+    </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>

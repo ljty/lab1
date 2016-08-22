@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import static com.ifox.android.lab.R.id.toolbar;
 
@@ -49,10 +48,7 @@ public class ShowNewsActivity extends AppCompatActivity {
 
         Intent intent=getIntent();
 
-        System.out.println(intent.getStringExtra("n_content"));
-
         n_title.setText(intent.getStringExtra("n_title"));
-        Toast.makeText(context,intent.getStringExtra("n_content"),Toast.LENGTH_SHORT).show();
         n_content.setText(intent.getStringExtra("n_content"));
 
     }
