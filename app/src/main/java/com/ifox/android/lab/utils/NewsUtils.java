@@ -18,7 +18,7 @@ import java.util.ArrayList;
  */
 public class NewsUtils {
 
-    public static String newsPath_url="http://222.196.200.24:8080/lab//listAllNew.json";
+    public static String newsPath_url="http://222.196.200.28:8080/lab/listAllNew.json";
 
     public static ArrayList<NewsBean> getAllNewsForNetWork(Context context){
         ArrayList<NewsBean> arrayList = new ArrayList<NewsBean>();
@@ -70,7 +70,6 @@ public class NewsUtils {
                     arrayList.add(newsBean);
                 }
 
-                //3. 清楚数据库中旧的数据，将新的数据缓存到数据库中
                 new NewsDaoUtils(context).delete();
                 new NewsDaoUtils(context).saveNews(arrayList);
             }
