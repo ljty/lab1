@@ -78,14 +78,16 @@ public class NewsFragment extends Fragment {
         mNewslv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent it=new Intent(mContext,ShowNewsActivity.class);
-                NewsBean bean=(NewsBean)parent.getItemAtPosition(position);
+                Intent intent = new Intent(mContext,ShowNewsActivity.class);
+                NewsBean bean = (NewsBean)parent.getItemAtPosition(position);
+
                 String n_title = bean.n_title;
                 String n_content = bean.n_content;
 
-                it.putExtra("n_title",n_title);
-                it.putExtra("n_content",n_content);
-                startActivity(it);
+                intent.putExtra("n_title",n_title);
+                intent.putExtra("n_content",n_content);
+
+                startActivity(intent);
             }
         });
         return v;

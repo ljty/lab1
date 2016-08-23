@@ -21,16 +21,14 @@ public class OpenHelper extends SQLiteOpenHelper{
                 "n_content varchar(200)," +
                 "n_visitTimes varchar(200)," +
                 "n_sendDate varchar(200)," +
-                "n_attachName varchar(200)," +
-                "n_attachAddress varchar(200))");
+                "n_attachName varchar(200))");
 
         db.execSQL("create table edu (n_id integer  ," +
                 "n_title varchar(200)," +
                 "n_content varchar(200)," +
                 "n_visitTimes varchar(200)," +
                 "n_sendDate varchar(200)," +
-                "n_attachName varchar(200)," +
-                "n_attachAddress varchar(200))");
+                "n_attachName varchar(200))");
     }
 
     @Override

@@ -29,6 +29,7 @@ public class NewsDaoUtils {
     }
     //向数据库中添加新闻数据
     public void saveNews(ArrayList<NewsBean> list){
+
         //通过帮助类对象获取一个数据库操作对象
         SQLiteDatabase db = newsOpenHelper.getReadableDatabase();
         for (NewsBean newsBean : list) {
@@ -39,7 +40,6 @@ public class NewsDaoUtils {
             values.put("n_visitTimes", newsBean.n_visitTimes);
             values.put("n_sendDate", newsBean.n_sendDate);
             values.put("n_attachName", newsBean.n_attachName);
-            values.put("n_attachAddress", newsBean.n_attachAddress);
 
             db.insert("news", null, values);
         }
@@ -48,6 +48,9 @@ public class NewsDaoUtils {
     //从数据库中获取缓存的新闻数据
     public ArrayList<NewsBean> getNews(){
         ArrayList<NewsBean> list = new ArrayList<NewsBean>();
+
+
+
         //通过帮助类对象获取一个数据库操作对象
         SQLiteDatabase db = newsOpenHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("select * from news", null);//查询获取数据
@@ -60,7 +63,6 @@ public class NewsDaoUtils {
                 newsBean.n_visitTimes = cursor.getString(3);
                 newsBean.n_sendDate = cursor.getString(4);
                 newsBean.n_attachName =	cursor.getString(5);
-                newsBean.n_attachAddress = cursor.getString(6);
 
                 list.add(newsBean);
             }

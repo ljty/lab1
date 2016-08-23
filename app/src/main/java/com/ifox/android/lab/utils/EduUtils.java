@@ -1,6 +1,8 @@
 package com.ifox.android.lab.utils;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 import com.ifox.android.lab.bean.EduBean;
 import com.ifox.android.lab.dao.EduDaoUtils;
@@ -18,7 +20,9 @@ import java.util.ArrayList;
  */
 public class EduUtils {
 
-    public static String eduPath_url="http://222.196.200.28:8080/lab/listAllNew.json";
+    public static String eduPath_url="http://222.196.200.94:8080/lab/listAllTheory.json";
+
+    public static String eduPicPath_url="http://222.196.200.94:8080/lab/upload/";
 
     public static ArrayList<EduBean> getAllEduForNetWork(Context context){
         ArrayList<EduBean> arrayList = new ArrayList<EduBean>();
@@ -42,13 +46,24 @@ public class EduUtils {
 
                     JSONObject edu_json = jsonArray.getJSONObject(i);
                     EduBean eduBean = new EduBean();
-//                    eduBean.n_id=edu_json.getInt("n_id");
-//                    eduBean.n_title=edu_json.getString("n_title");
-//                    eduBean.n_content=edu_json.getString("n_content");
-//                    eduBean.n_visitTimes=edu_json.getString("n_visitTimes");
-//                    eduBean.n_sendDate=edu_json.getString("n_sendDate");
-//                    eduBean.n_attachName=edu_json.getString("n_attachName");
-//                    eduBean.n_attachAddress=edu_json.getString("n_attachAddress");
+                    eduBean.et_id=edu_json.getInt("et_id");
+                    eduBean.et_title=edu_json.getString("et_title");
+                    eduBean.et_content=edu_json.getString("et_content");
+                    eduBean.et_visitTimes=edu_json.getString("et_visitTimes");
+                    eduBean.et_sendDate=edu_json.getString("et_sendDate");
+                    eduBean.et_attachName=edu_json.getString("et_attachName");
+
+                    URL url_pic = new URL(eduPicPath_url+edu_json.getString("et_attachAddress"));
+                    HttpURLConnection connection_pic = (HttpURLConnection) url_pic.openConnection();
+                    connection_pic.setRequestMethod("GET");
+                    connection_pic.setConnectTimeout(10*1000);
+                    int code_pic = connection_pic.getResponseCode();
+                    if(code_pic == 200) {
+                        InputStream inputStream_pic = connection_pic.getInputStream();
+                        Bitmap bitmap = BitmapFactory.decodeStream(inputStream_pic);
+
+                        eduBean.et_attachAddress=bitmap;
+                    }
 
                     arrayList.add(eduBean);
                 }

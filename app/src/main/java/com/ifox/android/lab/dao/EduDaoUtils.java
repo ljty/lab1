@@ -33,13 +33,12 @@ public class EduDaoUtils {
         SQLiteDatabase db = eduOpenHelper.getReadableDatabase();
         for (EduBean eduBean : list) {
             ContentValues values = new ContentValues();
-//            values.put("n_id", eduBean.n_id);
-//            values.put("n_title", eduBean.n_title);
-//            values.put("n_content", eduBean.n_content);
-//            values.put("n_visitTimes", eduBean.n_visitTimes);
-//            values.put("n_sendDate", eduBean.n_sendDate);
-//            values.put("n_attachName", eduBean.n_attachName);
-//            values.put("n_attachAddress", eduBean.n_attachAddress);
+            values.put("et_id", eduBean.et_id);
+            values.put("et_title", eduBean.et_title);
+            values.put("et_content", eduBean.et_content);
+            values.put("et_visitTimes", eduBean.et_visitTimes);
+            values.put("et_sendDate", eduBean.et_sendDate);
+            values.put("et_attachName", eduBean.et_attachName);
 
             db.insert("edu", null, values);
         }
@@ -54,13 +53,12 @@ public class EduDaoUtils {
         if(cursor != null && cursor.getCount() > 0){
             while(cursor.moveToNext()){
                 EduBean eduBean = new EduBean();
-//                eduBean.n_id = cursor.getInt(0);
-//                eduBean.n_title = cursor.getString(1);
-//                eduBean.n_content =	cursor.getString(2);
-//                eduBean.n_visitTimes = cursor.getString(3);
-//                eduBean.n_sendDate = cursor.getString(4);
-//                eduBean.n_attachName =	cursor.getString(5);
-//                eduBean.n_attachAddress = cursor.getString(6);
+                eduBean.et_id = cursor.getInt(0);
+                eduBean.et_title = cursor.getString(1);
+                eduBean.et_content =	cursor.getString(2);
+                eduBean.et_visitTimes = cursor.getString(3);
+                eduBean.et_sendDate = cursor.getString(4);
+                eduBean.et_attachName =	cursor.getString(5);
 
                 list.add(eduBean);
             }

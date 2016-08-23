@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ifox.android.lab.R;
@@ -51,9 +52,17 @@ public class NewsAdapter extends BaseAdapter {
 
         TextView n_title = (TextView) view.findViewById(R.id.n_title);
 
+        TextView n_senddate = (TextView) view.findViewById(R.id.n_senddate);
+
+        ImageView n_attachAddress = (ImageView) view.findViewById(R.id.n_attachAddress);
+
         NewsBean newsBean = list.get(position);
 
         n_title.setText(newsBean.n_title);
+
+        n_attachAddress.setImageBitmap(newsBean.n_attachAddress);
+
+        n_senddate.setText(newsBean.n_sendDate);
 
         return view;
     }

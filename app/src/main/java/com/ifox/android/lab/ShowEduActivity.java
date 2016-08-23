@@ -14,9 +14,9 @@ import static com.ifox.android.lab.R.id.toolbar;
  */
 public class ShowEduActivity extends AppCompatActivity {
 
-    private TextView n_title;
+    private TextView et_title;
 
-    private TextView n_content;
+    private TextView et_content;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,13 +38,13 @@ public class ShowEduActivity extends AppCompatActivity {
             }
         });
 
-        n_title = (TextView) findViewById(R.id.n_title);
-        n_content = (TextView) findViewById(R.id.n_content);
+        et_title = (TextView) findViewById(R.id.et_title);
+        et_content = (TextView) findViewById(R.id.et_content);
 
         Intent intent = getIntent();
 
-        n_title.setText(intent.getStringExtra("n_title"));
-        n_content.setText(intent.getStringExtra("n_content"));
+        et_title.setText(intent.getStringExtra("n_title"));
+        et_content.setText(intent.getStringExtra("n_content"));
 
     }
 }

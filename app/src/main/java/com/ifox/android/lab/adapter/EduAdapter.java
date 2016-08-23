@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ifox.android.lab.R;
@@ -47,12 +48,19 @@ public class EduAdapter extends BaseAdapter{
         }else {
             view = View.inflate(context, R.layout.item_edu,null);
         }
+        TextView et_title = (TextView) view.findViewById(R.id.et_title);
 
-        TextView title = (TextView) view.findViewById(R.id.title);
+        TextView et_sendDate = (TextView) view.findViewById(R.id.et_sendDate);
+
+        ImageView et_attachAddress = (ImageView) view.findViewById(R.id.et_attachAddress);
 
         EduBean eduBean = list.get(position);
 
-        title.setText(eduBean.getTitle());
+        et_title.setText(eduBean.et_title);
+
+        et_sendDate.setText(eduBean.et_sendDate);
+
+        et_attachAddress.setImageBitmap(eduBean.et_attachAddress);
 
         return view;
     }

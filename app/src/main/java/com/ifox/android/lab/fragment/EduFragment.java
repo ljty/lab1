@@ -52,7 +52,7 @@ public class EduFragment extends Fragment {
         mEdulv = (ListView)v.findViewById(R.id.edulv);
 
         //1.先去数据库中获取缓存的新闻数据展示到listview
-         ArrayList<EduBean> allEdu_database = EduUtils.getAllEduForDatabase(mContext);
+        ArrayList<EduBean> allEdu_database = EduUtils.getAllEduForDatabase(mContext);
 
         if(allEdu_database != null && allEdu_database.size()>0){
             //创建一个adapter设置给listview
@@ -80,11 +80,11 @@ public class EduFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent it = new Intent(mContext,ShowEduActivity.class);
                 EduBean bean = (EduBean)parent.getItemAtPosition(position);
-//        String n_title = bean.;
-//        String n_content = bean.;
+                String et_title = bean.et_title;
+                String et_content = bean.et_content;
 
-//        it.putExtra("n_title",n_title);
-//        it.putExtra("n_content",n_content);
+                it.putExtra("n_title",et_title);
+                it.putExtra("n_content",et_content);
                 startActivity(it);
             }
         });

@@ -1,6 +1,8 @@
 package com.ifox.android.lab.utils;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 import com.ifox.android.lab.bean.NewsBean;
 import com.ifox.android.lab.dao.NewsDaoUtils;
@@ -18,7 +20,9 @@ import java.util.ArrayList;
  */
 public class NewsUtils {
 
-    public static String newsPath_url="http://222.196.200.28:8080/lab/listAllNew.json";
+    public static String newsPath_url="http://222.196.200.94:8080/lab/listAllNew.json";
+
+    public static String newsPicPath_url="http://222.196.200.94:8080/lab/upload/";
 
     public static ArrayList<NewsBean> getAllNewsForNetWork(Context context){
         ArrayList<NewsBean> arrayList = new ArrayList<NewsBean>();
@@ -48,7 +52,18 @@ public class NewsUtils {
                     newsBean.n_visitTimes=new_json.getString("n_visitTimes");
                     newsBean.n_sendDate=new_json.getString("n_sendDate");
                     newsBean.n_attachName=new_json.getString("n_attachName");
-                    newsBean.n_attachAddress=new_json.getString("n_attachAddress");
+
+                    URL url_pic = new URL(newsPicPath_url+new_json.getString("n_attachAddress"));
+                    HttpURLConnection connection_pic = (HttpURLConnection) url_pic.openConnection();
+                    connection_pic.setRequestMethod("GET");
+                    connection_pic.setConnectTimeout(10*1000);
+                    int code_pic = connection_pic.getResponseCode();
+                    if(code_pic == 200) {
+                        InputStream inputStream_pic = connection_pic.getInputStream();
+                        Bitmap bitmap = BitmapFactory.decodeStream(inputStream_pic);
+
+                        newsBean.n_attachAddress=bitmap;
+                    }
 
                     arrayList.add(newsBean);
                 }

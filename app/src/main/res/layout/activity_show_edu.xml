@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
+<LinearLayout android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <!--教学资源显示-->
     <include layout="@layout/toolbar_base"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        app:navigationIcon="?attr/homeAsUpIndicator" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView4" />
+        android:id="@+id/et_title"
+        android:layout_gravity="center_horizontal"
+        android:textSize="24sp"
+        android:padding="8dp"
+        android:gravity="center|top"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/textView5" />
+        android:id="@+id/et_content"
+        android:textSize="16sp"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp" />
 
 </LinearLayout>
 
