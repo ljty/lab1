@@ -1,36 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="horizontal"
+<LinearLayout android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="48dp"
+    android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--公告条目-->
-    <ImageView
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:id="@+id/n_attachAddress"
-        android:layout_margin="8dp"
-        android:src="@drawable/news" />
-
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="48dp">
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
-        <TextView
+        <ImageView
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:scaleType="centerCrop"
+            android:id="@+id/n_attachAddress"
+            android:layout_margin="8dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="32dp"
-            android:textSize="12sp"
-            android:id="@+id/n_title"/>
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:textSize="12sp"
-            android:layout_height="16dp"
-            android:id="@+id/n_senddate"
-            android:layout_gravity="right"
-            android:layout_marginRight="8dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:textSize="18sp"
+                android:id="@+id/n_title"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textSize="12sp"
+                android:layout_height="wrap_content"
+                android:id="@+id/n_senddate"
+                android:layout_gravity="right"
+                android:layout_marginRight="8dp" />
+
+        </LinearLayout>
 
     </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black" />
 
 </LinearLayout>
