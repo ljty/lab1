@@ -5,11 +5,12 @@
     android:layout_height="match_parent"
     android:weightSum="1">
 
+    <!--视频碎片-->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text=" 预留 "
         android:gravity="center"
-        android:id="@+id/textView3"
-        />
+        android:id="@+id/textView3" />
+
 </LinearLayout>

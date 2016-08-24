@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 /**
- * Created by 10368 on 2016/7/22.
+ * 启动活动
  */
 public class SplashActivity extends Activity{
 

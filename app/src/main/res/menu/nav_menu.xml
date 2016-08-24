@@ -1,27 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <!--侧边菜单-->
     <group android:checkableBehavior="single">
 
         <item
             android:id="@+id/menu_edit"
-            android:title=" 编辑 "
-            android:icon="@drawable/pen"
-            ></item>
+            android:title="@string/edit"
+            android:icon="@drawable/pen" />
 
         <item
             android:id="@+id/menu_about"
-            android:title=" 关于 "
-            android:icon="@drawable/crown"
-            ></item>
+            android:title="@string/about"
+            android:icon="@drawable/crown" />
 
     </group>
 
     <item
         android:id="@+id/menu_settings"
-        android:title=" 设置 "
-        android:icon="@drawable/gear"
-        ></item>
-
+        android:title="@string/setting"
+        android:icon="@drawable/gear" />
 
 </menu>

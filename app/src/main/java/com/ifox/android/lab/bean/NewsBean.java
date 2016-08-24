@@ -1,17 +1,25 @@
 package com.ifox.android.lab.bean;
 
+import android.graphics.Bitmap;
+
 /**
- * Created by 10368 on 2016/7/23.
+ * 公告模型
  */
 public class NewsBean {
 
     public int n_id;
+
     public String n_title;
+
     public String  n_content;
+
     public String n_visitTimes;
+
     public String  n_sendDate;
+
     public String n_attachName;
-    public String n_attachAddress;
+
+    public Bitmap n_attachAddress;
 
     public int getN_id() {
         return n_id;
@@ -61,21 +69,14 @@ public class NewsBean {
         this.n_attachName = n_attachName;
     }
 
-    public String getN_attachAddress() {
+    public Bitmap getN_attachAddress() {
         return n_attachAddress;
     }
 
-    public void setN_attachAddress(String n_attachAddress) {
+    public void setN_attachAddress(Bitmap n_attachAddress) {
         this.n_attachAddress = n_attachAddress;
     }
 
     public NewsBean() {
-        this.n_attachAddress = n_attachAddress;
-        this.n_id = n_id;
-        this.n_title = n_title;
-        this.n_content = n_content;
-        this.n_visitTimes = n_visitTimes;
-        this.n_sendDate = n_sendDate;
-        this.n_attachName = n_attachName;
     }
 }

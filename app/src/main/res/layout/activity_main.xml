@@ -10,6 +10,7 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
+    <!--主页面-->
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -17,8 +18,7 @@
 
         <include layout="@layout/toolbar_base"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </include>
+            android:layout_height="wrap_content" />
 
         <FrameLayout
             android:id="@+id/fragment"
@@ -43,7 +43,6 @@
 
         app:headerLayout="@layout/item_nav"
         app:menu="@menu/nav_menu"
-        app:itemIconTint="@android:color/holo_purple"
-        />
+        app:itemIconTint="@android:color/holo_purple" />
 
 </android.support.v4.widget.DrawerLayout>

@@ -8,19 +8,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ifox.android.lab.R;
-import com.ifox.android.lab.bean.EduBean;
+import com.ifox.android.lab.bean.NewsBean;
 
 import java.util.ArrayList;
 
 /**
- * 教学资源适配器
+ * 公告适配器
  */
-public class EduAdapter extends BaseAdapter{
+public class NewsAdapter extends BaseAdapter {
 
-    private final ArrayList<EduBean> list;
+    private final ArrayList<NewsBean> list;
+
     private final Context context;
 
-    public EduAdapter(Context context,ArrayList<EduBean> list){
+    public NewsAdapter(Context context,ArrayList<NewsBean> list){
         this.context = context;
         this.list = list;
     }
@@ -46,21 +47,22 @@ public class EduAdapter extends BaseAdapter{
         if(convertView != null){
             view = convertView;
         }else {
-            view = View.inflate(context, R.layout.item_edu,null);
+            view = View.inflate(context, R.layout.item_news,null);
         }
-        TextView et_title = (TextView) view.findViewById(R.id.et_title);
 
-        TextView et_sendDate = (TextView) view.findViewById(R.id.et_sendDate);
+        TextView n_title = (TextView) view.findViewById(R.id.n_title);
 
-        ImageView et_attachAddress = (ImageView) view.findViewById(R.id.et_attachAddress);
+        TextView n_senddate = (TextView) view.findViewById(R.id.n_senddate);
 
-        EduBean eduBean = list.get(position);
+        ImageView n_attachAddress = (ImageView) view.findViewById(R.id.n_attachAddress);
 
-        et_title.setText(eduBean.et_title);
+        NewsBean newsBean = list.get(position);
 
-        et_sendDate.setText(eduBean.et_sendDate);
+        n_title.setText(newsBean.n_title);
 
-        et_attachAddress.setImageBitmap(eduBean.et_attachAddress);
+        n_attachAddress.setImageBitmap(newsBean.n_attachAddress);
+
+        n_senddate.setText(newsBean.n_sendDate);
 
         return view;
     }

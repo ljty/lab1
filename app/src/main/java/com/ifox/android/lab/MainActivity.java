@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
     private NavigationView nav_view;
 
-    private Context context=this;
+    private Context context = this;
 
     private Toolbar mToolbar;
 
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
 
-                if (item.getItemId()==R.id.share){
+                if (item.getItemId() == R.id.share){
                     Toast.makeText(context,"搜索",Toast.LENGTH_SHORT).show();
                 }
                 return false;
@@ -69,17 +69,17 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.menu_edit:
                         // do something
-                        Toast.makeText(context,"1",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context,R.string.edit,Toast.LENGTH_SHORT).show();
                         break;
 
                     case R.id.menu_about:
                         // do something
-                        Toast.makeText(context,"2",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context,R.string.about,Toast.LENGTH_SHORT).show();
                         break;
 
                     case R.id.menu_settings:
                         // do something
-                        Toast.makeText(context,"3",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context,R.string.setting,Toast.LENGTH_SHORT).show();
                         break;
 
                 }
