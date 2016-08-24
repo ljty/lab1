@@ -20,9 +20,9 @@ import java.util.ArrayList;
  */
 public class NewsUtils {
 
-    public static String newsPath_url="http://222.196.200.94:8080/lab/listAllNew.json";
+    public static String newsPath_url="http://222.196.200.55:8080/lab/listAllNew.json";
 
-    public static String newsPicPath_url="http://222.196.200.94:8080/lab/upload/";
+    public static String newsPicPath_url="http://222.196.200.55:8080/lab/upload/";
 
     public static ArrayList<NewsBean> getAllNewsForNetWork(Context context){
         ArrayList<NewsBean> arrayList = new ArrayList<NewsBean>();

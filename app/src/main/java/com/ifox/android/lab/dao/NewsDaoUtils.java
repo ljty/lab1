@@ -14,16 +14,16 @@ import java.util.ArrayList;
  */
 public class NewsDaoUtils {
 
-    private OpenHelper newsOpenHelper;
+    private OpenHelper newsNewsOpenHelper;
 
     public NewsDaoUtils(Context context){
         //创建一个帮助类对象
-        newsOpenHelper = new OpenHelper(context);
+        newsNewsOpenHelper = new OpenHelper(context);
     }
     //删除数据库中缓存的旧数据
     public void delete(){
         //通过帮助类对象获取一个数据库操作对象
-        SQLiteDatabase db = newsOpenHelper.getReadableDatabase();
+        SQLiteDatabase db = newsNewsOpenHelper.getReadableDatabase();
         db.delete("news", null, null);
         db.close();
     }
@@ -31,7 +31,7 @@ public class NewsDaoUtils {
     public void saveNews(ArrayList<NewsBean> list){
 
         //通过帮助类对象获取一个数据库操作对象
-        SQLiteDatabase db = newsOpenHelper.getReadableDatabase();
+        SQLiteDatabase db = newsNewsOpenHelper.getReadableDatabase();
         for (NewsBean newsBean : list) {
             ContentValues values = new ContentValues();
             values.put("n_id", newsBean.n_id);
@@ -49,10 +49,8 @@ public class NewsDaoUtils {
     public ArrayList<NewsBean> getNews(){
         ArrayList<NewsBean> list = new ArrayList<NewsBean>();
 
-
-
         //通过帮助类对象获取一个数据库操作对象
-        SQLiteDatabase db = newsOpenHelper.getReadableDatabase();
+        SQLiteDatabase db = newsNewsOpenHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("select * from news", null);//查询获取数据
         if(cursor != null && cursor.getCount() > 0){
             while(cursor.moveToNext()){

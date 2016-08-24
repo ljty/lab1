@@ -23,12 +23,12 @@ public class OpenHelper extends SQLiteOpenHelper{
                 "n_sendDate varchar(200)," +
                 "n_attachName varchar(200))");
 
-        db.execSQL("create table edu (n_id integer  ," +
-                "n_title varchar(200)," +
-                "n_content varchar(200)," +
-                "n_visitTimes varchar(200)," +
-                "n_sendDate varchar(200)," +
-                "n_attachName varchar(200))");
+        db.execSQL("create table edu (et_id integer  ," +
+                "et_title varchar(200)," +
+                "et_content varchar(200)," +
+                "et_visitTimes varchar(200)," +
+                "et_sendDate varchar(200)," +
+                "et_attachName varchar(200))");
     }
 
     @Override
