@@ -16,19 +16,20 @@ public class OpenHelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        db.execSQL("create table news (n_id integer  ," +
-                "n_title varchar(200)," +
-                "n_content varchar(200)," +
+        db.execSQL("create table news (n_id integer primary key autoincrement ," +
+                "n_title varchar(200),n_content varchar(200)," +
                 "n_visitTimes varchar(200)," +
                 "n_sendDate varchar(200)," +
-                "n_attachName varchar(200))");
+                "n_attachName varchar(200)," +
+                "n_attachAddress blob)");
 
-        db.execSQL("create table edu (et_id integer  ," +
+        db.execSQL("create table edu (et_id integer primary key autoincrement ," +
                 "et_title varchar(200)," +
                 "et_content varchar(200)," +
                 "et_visitTimes varchar(200)," +
                 "et_sendDate varchar(200)," +
-                "et_attachName varchar(200))");
+                "et_attachName varchar(200)," +
+                "et_attachAddress blob)");
     }
 
     @Override

@@ -4,9 +4,12 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 import com.ifox.android.lab.bean.EduBean;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 /**
@@ -40,6 +43,11 @@ public class EduDaoUtils {
             values.put("et_sendDate", eduBean.et_sendDate);
             values.put("et_attachName", eduBean.et_attachName);
 
+            ByteArrayOutputStream os = new ByteArrayOutputStream();
+            Bitmap bitmap = eduBean.et_attachAddress;
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, os);
+            values.put("et_attachAddress", os.toByteArray());
+
             db.insert("edu", null, values);
         }
         db.close();
@@ -59,6 +67,9 @@ public class EduDaoUtils {
                 eduBean.et_visitTimes = cursor.getString(3);
                 eduBean.et_sendDate = cursor.getString(4);
                 eduBean.et_attachName =	cursor.getString(5);
+                byte[] in = cursor.getBlob(6);
+                Bitmap bitmap = BitmapFactory.decodeByteArray(in, 0, in.length);
+                eduBean.et_attachAddress=bitmap;
 
                 list.add(eduBean);
             }

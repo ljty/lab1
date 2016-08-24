@@ -4,9 +4,12 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 import com.ifox.android.lab.bean.NewsBean;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 /**
@@ -41,6 +44,11 @@ public class NewsDaoUtils {
             values.put("n_sendDate", newsBean.n_sendDate);
             values.put("n_attachName", newsBean.n_attachName);
 
+            ByteArrayOutputStream os = new ByteArrayOutputStream();
+            Bitmap bitmap = newsBean.n_attachAddress;
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, os);
+            values.put("n_attachAddress", os.toByteArray());
+
             db.insert("news", null, values);
         }
         db.close();
@@ -61,6 +69,10 @@ public class NewsDaoUtils {
                 newsBean.n_visitTimes = cursor.getString(3);
                 newsBean.n_sendDate = cursor.getString(4);
                 newsBean.n_attachName =	cursor.getString(5);
+
+                byte[] in = cursor.getBlob(6);
+                Bitmap bitmap = BitmapFactory.decodeByteArray(in, 0, in.length);
+                newsBean.n_attachAddress=bitmap;
 
                 list.add(newsBean);
             }
