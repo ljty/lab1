@@ -3,6 +3,7 @@
     package="com.ifox.android.lab">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -20,6 +21,13 @@
         <activity android:name=".ShowEduActivity" android:screenOrientation="portrait"/>
         <activity android:name=".ShowNewsActivity" android:screenOrientation="portrait"/>
         <activity android:name=".MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".video.Main2Activity" />
+        <activity
+            android:name=".video.Main3Activity"
+            android:configChanges="orientation|screenSize|screenLayout" />
+        <activity android:name=".video.Main5Activity" />
+        <activity android:name=".video.DownLoadActivity" />
+        <activity android:name=".video.LocalVideoActivity"></activity>
     </application>
 
 </manifest>

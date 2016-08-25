@@ -1,9 +1,9 @@
 package com.ifox.android.lab.fragment;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +13,8 @@ import android.widget.ListView;
 import com.ifox.android.lab.R;
 import com.ifox.android.lab.ShowNewsActivity;
 import com.ifox.android.lab.adapter.NewsAdapter;
-import com.ifox.android.lab.bean.NewsBean;
 import com.ifox.android.lab.bean.DataHolder;
+import com.ifox.android.lab.bean.NewsBean;
 import com.ifox.android.lab.utils.NewsUtils;
 
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ import java.util.ArrayList;
 /**
  * 公告托管
  */
-public class NewsFragment extends Fragment{
+public class NewsFragment extends Fragment {
 
     private ListView mNewslv;
 

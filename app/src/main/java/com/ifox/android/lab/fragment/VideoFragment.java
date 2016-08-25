@@ -1,7 +1,7 @@
 package com.ifox.android.lab.fragment;
 
-import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +11,7 @@ import com.ifox.android.lab.R;
 /**
  * 教学视频托管
  */
-public class VideoFragment extends Fragment{
+public class VideoFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

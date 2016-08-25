@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LabelView">
+        <attr name="is_static" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="title">
+        <attr name="titletext" format="string"/>
+        <attr name="titletextsize" format="dimension"/>
+        <attr name="titletextcolor" format="color"/>
+        <attr name="backcolor" format="reference|color"/>
+        <attr name="searchcolor" format="reference|color"/>
+    </declare-styleable>
+
+</resources>

@@ -1,12 +1,10 @@
 package com.ifox.android.lab;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,22 +15,22 @@ import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.ifox.android.lab.fragment.EduFragment;
 import com.ifox.android.lab.fragment.NewsFragment;
-import com.ifox.android.lab.fragment.VideoFragment;
 import com.ifox.android.lab.utils.EduUtils;
 import com.ifox.android.lab.utils.NewsUtils;
+import com.ifox.android.lab.video.ParentFragment;
 
 import static com.ifox.android.lab.R.id.toolbar;
 
 /**
  * 主活动，管理 fragment
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends FragmentActivity {
 
     private NewsFragment nf;
 
     private EduFragment ef;
 
-    private VideoFragment vf;
+    private ParentFragment vf;
 
     private int firstSelectedPosition = 0;
 
@@ -113,8 +111,8 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationBar.setTabSelectedListener(new BottomNavigationBar.OnTabSelectedListener() {
             @Override
             public void onTabSelected(int position) {
-                FragmentManager fm = getFragmentManager();
-                FragmentTransaction transaction = fm.beginTransaction();
+                android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
+                android.support.v4.app.FragmentTransaction transaction = fm.beginTransaction();
                 switch (position) {
                     case 0:
                         nf = new NewsFragment();
@@ -127,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case 2:
-                        vf = new VideoFragment();
+                        vf = new ParentFragment();
                         transaction.replace(R.id.fragment, vf);
                         break;
                 }
@@ -157,8 +155,8 @@ public class MainActivity extends AppCompatActivity {
 
     // 默认页设置
     private void setDefaultFragment() {
-        FragmentManager fm = getFragmentManager();
-        FragmentTransaction transaction = fm.beginTransaction();
+        android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
+        android.support.v4.app.FragmentTransaction transaction = fm.beginTransaction();
         NewsFragment nf = new NewsFragment();
         transaction.replace(R.id.fragment, nf);
         transaction.commit();

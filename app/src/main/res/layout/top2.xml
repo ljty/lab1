@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#56abe4"
+    >
+
+    <LinearLayout
+
+        android:layout_width="fill_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:id="@+id/l_teachvideo"
+            android:layout_width="3dp"
+            android:orientation="horizontal"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:gravity="center" >
+
+            <TextView
+                android:textSize="16dp"
+                android:id="@+id/t_teachvideo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="实验教学视频"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="3dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:gravity="center" >
+
+            <TextView
+                android:textSize="16dp"
+                android:id="@+id/syvideo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:text="仪器使用视频" />
+        </LinearLayout>
+    </LinearLayout>
+  <LinearLayout
+      android:id="@+id/id_iv_tabline"
+      android:layout_width="180dp"
+      android:layout_height="3dp"
+      android:background="#ffffff"
+      android:orientation="horizontal" />
+    <LinearLayout
+        android:padding="1dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#A9A9A9">
+        <TextView
+            android:paddingTop="5dp"
+            android:background="#ffffff"
+            android:id="@+id/serach"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:hint="请输入搜索词"
+            android:drawableRight="@drawable/search_bar_icon_normal"
+            />
+        </LinearLayout>
+
+
+</LinearLayout>
