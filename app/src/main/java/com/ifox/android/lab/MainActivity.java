@@ -18,6 +18,8 @@ import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.ifox.android.lab.fragment.EduFragment;
 import com.ifox.android.lab.fragment.NewsFragment;
 import com.ifox.android.lab.fragment.VideoFragment;
+import com.ifox.android.lab.utils.EduUtils;
+import com.ifox.android.lab.utils.NewsUtils;
 
 import static com.ifox.android.lab.R.id.toolbar;
 
@@ -45,6 +47,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        toolBar();
+        navMenu();
+        bottomBar();
+        date();
+    }
+
+    // 顶部标题栏
+    private void toolBar(){
         mToolbar = (Toolbar) findViewById(toolbar);
         mToolbar.setTitle("lab");
         mToolbar.setTitleTextAppearance(this, R.style.Theme_ToolBar_Base_Title);
@@ -54,14 +64,16 @@ public class MainActivity extends AppCompatActivity {
         mToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-
                 if (item.getItemId() == R.id.share){
                     Toast.makeText(context,"搜索",Toast.LENGTH_SHORT).show();
                 }
                 return false;
             }
         });
+    }
 
+    // 侧边菜单
+    private void navMenu(){
         nav_view= (NavigationView) findViewById( R.id.nav_view);
         nav_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -81,46 +93,42 @@ public class MainActivity extends AppCompatActivity {
                         // do something
                         Toast.makeText(context,R.string.setting,Toast.LENGTH_SHORT).show();
                         break;
-
                 }
                 return false;
             }
         });
+    }
 
-        // 底部导航栏
+    // 底部导航栏
+    private void bottomBar(){
         BottomNavigationBar bottomNavigationBar = (BottomNavigationBar) findViewById(R.id.bottom_navigation_bar);
-
         bottomNavigationBar
                 .addItem(new BottomNavigationItem(R.drawable.ic_home_white_24dp, " 公告 ").setActiveColor(R.color.mediumblue))
                 .addItem(new BottomNavigationItem(R.drawable.ic_book_white_24dp, " 教学资源 ").setActiveColor(R.color.purple))
                 .addItem(new BottomNavigationItem(R.drawable.ic_tv_white_24dp, " 教学视频 ").setActiveColor(R.color.orange))
                 .setFirstSelectedPosition(firstSelectedPosition)
                 .initialise();
-
         setDefaultFragment();
         // 设置底部导航栏的切换
         bottomNavigationBar.setTabSelectedListener(new BottomNavigationBar.OnTabSelectedListener() {
             @Override
             public void onTabSelected(int position) {
-
                 FragmentManager fm = getFragmentManager();
-
                 FragmentTransaction transaction = fm.beginTransaction();
-
                 switch (position) {
                     case 0:
                         nf = new NewsFragment();
                         transaction.replace(R.id.fragment, nf);
                         break;
+
                     case 1:
                         ef = new EduFragment();
                         transaction.replace(R.id.fragment, ef);
                         break;
+
                     case 2:
                         vf = new VideoFragment();
                         transaction.replace(R.id.fragment, vf);
-                        break;
-                    default:
                         break;
                 }
                 transaction.commit();
@@ -136,6 +144,17 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // 从服务器获取数据
+    private void date() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                NewsUtils.getAllNewsForNetWork(getApplicationContext());
+                EduUtils.getAllEduForNetWork(getApplicationContext());
+            }
+        }).start();
+    }
+
     // 默认页设置
     private void setDefaultFragment() {
         FragmentManager fm = getFragmentManager();
@@ -145,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
         transaction.commit();
     }
 
-    //设置标题文本居中
+    // 设置标题栏文本居中
     public void setTitleCenter(Toolbar toolbar){
         int childCount = toolbar.getChildCount();
         for(int i = 0 ;i < childCount;i++){
