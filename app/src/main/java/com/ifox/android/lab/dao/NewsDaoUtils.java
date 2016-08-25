@@ -17,24 +17,23 @@ import java.util.ArrayList;
  */
 public class NewsDaoUtils {
 
-    private OpenHelper newsNewsOpenHelper;
+    private OpenHelper newsOpenHelper;
 
     public NewsDaoUtils(Context context){
         //创建一个帮助类对象
-        newsNewsOpenHelper = new OpenHelper(context);
+        newsOpenHelper = new OpenHelper(context);
     }
     //删除数据库中缓存的旧数据
     public void delete(){
         //通过帮助类对象获取一个数据库操作对象
-        SQLiteDatabase db = newsNewsOpenHelper.getReadableDatabase();
+        SQLiteDatabase db = newsOpenHelper.getReadableDatabase();
         db.delete("news", null, null);
         db.close();
     }
     //向数据库中添加新闻数据
     public void saveNews(ArrayList<NewsBean> list){
-
         //通过帮助类对象获取一个数据库操作对象
-        SQLiteDatabase db = newsNewsOpenHelper.getReadableDatabase();
+        SQLiteDatabase db = newsOpenHelper.getReadableDatabase();
         for (NewsBean newsBean : list) {
             ContentValues values = new ContentValues();
             values.put("n_id", newsBean.n_id);
@@ -56,16 +55,15 @@ public class NewsDaoUtils {
     //从数据库中获取缓存的新闻数据
     public ArrayList<NewsBean> getNews(){
         ArrayList<NewsBean> list = new ArrayList<NewsBean>();
-
         //通过帮助类对象获取一个数据库操作对象
-        SQLiteDatabase db = newsNewsOpenHelper.getReadableDatabase();
+        SQLiteDatabase db = newsOpenHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("select * from news", null);//查询获取数据
         if(cursor != null && cursor.getCount() > 0){
             while(cursor.moveToNext()){
                 NewsBean newsBean = new NewsBean();
                 newsBean.n_id = cursor.getInt(0);
                 newsBean.n_title = cursor.getString(1);
-                newsBean.n_content =	cursor.getString(2);
+                newsBean.n_content = cursor.getString(2);
                 newsBean.n_visitTimes = cursor.getString(3);
                 newsBean.n_sendDate = cursor.getString(4);
                 newsBean.n_attachName =	cursor.getString(5);

@@ -6,18 +6,18 @@ import android.os.Bundle;
 import android.os.Handler;
 
 /**
- * 启动活动
+ * 启动应用，设置停留时间，使mainactivity有时间获取服务器数据
  */
 public class SplashActivity extends Activity{
 
-    private final int SPLASH_DISPLAY_LENGHT = 1000; // 延迟1秒
+    private final int SPLASH_DISPLAY_LENGHT = 1000*3; // 延迟1秒
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        new Handler().postDelayed(new Runnable(){
 
+        new Handler().postDelayed(new Runnable(){
             @Override
             public void run() {
                 Intent mainIntent = new Intent(SplashActivity.this,MainActivity.class);

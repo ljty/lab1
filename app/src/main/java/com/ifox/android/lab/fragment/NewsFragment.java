@@ -4,8 +4,6 @@ import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +14,7 @@ import com.ifox.android.lab.R;
 import com.ifox.android.lab.ShowNewsActivity;
 import com.ifox.android.lab.adapter.NewsAdapter;
 import com.ifox.android.lab.bean.NewsBean;
+import com.ifox.android.lab.bean.DataHolder;
 import com.ifox.android.lab.utils.NewsUtils;
 
 import java.util.ArrayList;
@@ -23,73 +22,40 @@ import java.util.ArrayList;
 /**
  * 公告托管
  */
-public class NewsFragment extends Fragment {
+public class NewsFragment extends Fragment{
 
     private ListView mNewslv;
 
     private Context mContext;
 
-    private Handler handler = new Handler(){
-        public void handleMessage(android.os.Message msg) {
-
-            ArrayList<NewsBean> allNews = (ArrayList<NewsBean>) msg.obj;
-
-            if(allNews != null && allNews .size()>0)
-            {
-                //3.创建一个adapter设置给listview
-                NewsAdapter newsAdapter=new NewsAdapter(mContext,allNews);
-                mNewslv.setAdapter(newsAdapter);
-            }
-        };
-    };
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_news, null);
 
+        // 为适配器设置内容
         mContext=getActivity();
-
         mNewslv=(ListView)v.findViewById(R.id.newslv);
-
-        //1.先去数据库中获取缓存的新闻数据展示到listview
-        ArrayList<NewsBean> allNews_database = NewsUtils.getAllNewsForDatabase(mContext);
-
-        if(allNews_database !=null && allNews_database.size()>0){
-            //创建一个adapter设置给listview
-
+        final ArrayList<NewsBean> allNews_database = NewsUtils.getAllNewsForDatabase(mContext);
+        if(allNews_database != null && allNews_database.size()>0){
             NewsAdapter newsAdapter = new NewsAdapter(mContext, allNews_database);
             mNewslv.setAdapter(newsAdapter);
         }
 
-        new Thread(new Runnable() {
+        onClick();
+        return v;
+    }
 
-            @Override
-            public void run() {
-
-                ArrayList<NewsBean> allNews= NewsUtils.getAllNewsForNetWork(mContext);
-                //请求网络数据
-                //通过handler将msg发送到主线程去更新Ui
-                Message msg = Message.obtain();
-                msg.obj = allNews;
-                handler.sendMessage(msg);
-
-            }
-        }).start();
+    // 为适配器Item设置点击事件
+    private void onClick() {
         mNewslv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(mContext,ShowNewsActivity.class);
+
                 NewsBean bean = (NewsBean)parent.getItemAtPosition(position);
-
-                String n_title = bean.n_title;
-                String n_content = bean.n_content;
-
-                intent.putExtra("n_title",n_title);
-                intent.putExtra("n_content",n_content);
-
+                DataHolder.getInstance().setNewsBeanData(bean);
                 startActivity(intent);
             }
         });
-        return v;
     }
 }

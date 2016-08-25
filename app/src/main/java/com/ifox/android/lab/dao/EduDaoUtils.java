@@ -63,10 +63,11 @@ public class EduDaoUtils {
                 EduBean eduBean = new EduBean();
                 eduBean.et_id = cursor.getInt(0);
                 eduBean.et_title = cursor.getString(1);
-                eduBean.et_content =	cursor.getString(2);
+                eduBean.et_content = cursor.getString(2);
                 eduBean.et_visitTimes = cursor.getString(3);
                 eduBean.et_sendDate = cursor.getString(4);
                 eduBean.et_attachName =	cursor.getString(5);
+
                 byte[] in = cursor.getBlob(6);
                 Bitmap bitmap = BitmapFactory.decodeByteArray(in, 0, in.length);
                 eduBean.et_attachAddress=bitmap;
