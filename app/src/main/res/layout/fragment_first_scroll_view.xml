@@ -1,4 +1,4 @@
-<com.ifox.android.lab.video.NotifyingScrollView
+<com.ifox.android.lab.video.Persondefined.NotifyingScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/scrollview"
     android:layout_width="match_parent"
@@ -15,7 +15,7 @@
         android:divider="@drawable/horizontal_divider"
         android:showDividers="middle">
 
-        <include layout="@layout/header_placeholder"/>
+
 
         <TextView
             android:layout_width="match_parent"
@@ -65,4 +65,4 @@
             android:textColor="@android:color/black"
             android:text="测试内容"/>
     </LinearLayout>
-</com.ifox.android.lab.video.NotifyingScrollView>
+</com.ifox.android.lab.video.Persondefined.NotifyingScrollView>

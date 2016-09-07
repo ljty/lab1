@@ -14,7 +14,7 @@
         <attr name="STItabBackground" format="reference" />
         <attr name="STIshouldExpand" format="boolean" />
         <attr name="STItextCaps" format="boolean" />
-        <attr name="STItabTopBtmPadding" format="dimension" />
+        <attr name="STItabTSTItextCapsopBtmPadding" format="dimension" />
     </declare-styleable>
 
     <declare-styleable name="SlidingTabLayout">

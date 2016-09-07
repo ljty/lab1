@@ -11,7 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.ifox.android.lab.R;
-import com.ifox.android.lab.ShowEduActivity;
+import com.ifox.android.lab.Acitivity.ShowEduActivity;
 import com.ifox.android.lab.adapter.EduAdapter;
 import com.ifox.android.lab.bean.DataHolder;
 import com.ifox.android.lab.bean.EduBean;
