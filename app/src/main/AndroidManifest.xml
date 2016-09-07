@@ -11,23 +11,23 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".SplashActivity" android:screenOrientation="portrait">
+        <activity android:name=".Acitivity.SplashActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ShowEduActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".ShowNewsActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".MainActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".video.Main2Activity" />
+        <activity android:name=".Acitivity.ShowEduActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".Acitivity.ShowNewsActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".Acitivity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".video.Activity.SearchVideoListActivity" />
         <activity
-            android:name=".video.Main3Activity"
+            android:name=".video.Activity.VideoShowActivity"
             android:configChanges="orientation|screenSize|screenLayout" />
-        <activity android:name=".video.Main5Activity" />
-        <activity android:name=".video.DownLoadActivity" />
-        <activity android:name=".video.LocalVideoActivity"></activity>
+        <activity android:name=".video.Activity.SearchActivity" />
+        <activity android:name=".video.Activity.DownLoadActivity" />
+        <activity android:name=".video.Activity.LocalVideoPlayActivity"></activity>
     </application>
 
 </manifest>

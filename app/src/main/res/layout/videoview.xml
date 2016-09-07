@@ -12,7 +12,7 @@
         android:layout_gravity="top"
         android:paddingLeft="3dp"/>
 
-    <com.ifox.android.lab.video.MyVideoView
+    <com.ifox.android.lab.video.Persondefined.MyVideoView
         android:id="@+id/videoView"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"/>
