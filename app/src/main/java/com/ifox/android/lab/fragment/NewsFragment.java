@@ -11,7 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.ifox.android.lab.R;
-import com.ifox.android.lab.ShowNewsActivity;
+import com.ifox.android.lab.Acitivity.ShowNewsActivity;
 import com.ifox.android.lab.adapter.NewsAdapter;
 import com.ifox.android.lab.bean.DataHolder;
 import com.ifox.android.lab.bean.NewsBean;
