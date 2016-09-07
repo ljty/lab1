@@ -1,4 +1,4 @@
-package com.ifox.android.lab.video;
+package com.ifox.android.lab.video.Fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,14 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.ifox.android.lab.R;
-
-public class DownLoadedFragment extends Fragment {
-
+public class FirstScrollViewFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_down_loaded, container, false);
-    }
+        View view = inflater.inflate(R.layout.fragment_first_scroll_view, container, false);
+        return view;
 
+
+    }
 }
